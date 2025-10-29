@@ -1,0 +1,52 @@
+# Production Environment Configuration
+
+github_owner = "your-github-username"
+environment  = "production"
+
+# Repository visibility for production
+repository_defaults = {
+  visibility               = "private"
+  has_issues              = true
+  has_projects            = true
+  has_wiki                = false
+  has_downloads           = true
+  allow_merge_commit      = true
+  allow_squash_merge      = true
+  allow_rebase_merge      = true
+  delete_branch_on_merge  = true
+  auto_init               = true
+  allow_auto_merge        = false  # Disabled in production for safety
+}
+
+# Strict branch protection for production
+enable_branch_protection = true
+required_reviews         = 2
+
+# Enable auto-updates
+enable_dependabot = true
+
+# Production-specific variables
+n8n_variables = {
+  ENVIRONMENT = "production"
+  LOG_LEVEL   = "warn"
+}
+
+glance_variables = {
+  ENVIRONMENT = "production"
+  DEBUG_MODE  = "false"
+}
+
+boilerplate_variables = {
+  ENVIRONMENT = "production"
+}
+
+# Common topics for production environment
+common_topics = [
+  "terraform",
+  "infrastructure-as-code",
+  "production"
+]
+
+# Enable webhooks in production
+enable_webhooks = false  # Set to true and configure webhook_url if needed
+# webhook_url    = "https://your-webhook-endpoint.com/github"

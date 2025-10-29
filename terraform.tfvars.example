@@ -1,0 +1,83 @@
+# Example Terraform Variables File
+# Copy this to terraform.tfvars and update with your values
+# DO NOT commit terraform.tfvars to version control
+
+# GitHub Configuration
+github_owner = "your-github-username-or-org"
+# github_token is read from environment variable GITHUB_TOKEN
+
+# Environment
+environment = "production"
+
+# Default Branch
+default_branch = "main"
+
+# Branch Protection Settings
+enable_branch_protection = true
+required_reviews         = 1
+
+# Auto-update Settings
+enable_dependabot = true
+
+# Repository Defaults
+repository_defaults = {
+  visibility               = "private"
+  has_issues              = true
+  has_projects            = true
+  has_wiki                = false
+  has_downloads           = true
+  allow_merge_commit      = true
+  allow_squash_merge      = true
+  allow_rebase_merge      = true
+  delete_branch_on_merge  = true
+  auto_init               = true
+  allow_auto_merge        = true
+}
+
+# Common Topics
+common_topics = [
+  "terraform",
+  "infrastructure-as-code"
+]
+
+# Vulnerability Alerts
+vulnerability_alerts = true
+
+# Repository-specific Secrets (DO NOT commit real values)
+# Store actual secrets in environment variables or secret managers
+n8n_secrets = {
+  # Example: "DATABASE_URL" = "postgresql://..."
+}
+
+glance_secrets = {
+  # Example: "API_KEY" = "your-api-key"
+}
+
+boilerplate_secrets = {
+  # Example: "DEPLOY_TOKEN" = "your-token"
+}
+
+# Common Secrets (applied to all repositories)
+common_secrets = {
+  # Example: "DOCKER_USERNAME" = "username"
+  # Example: "DOCKER_PASSWORD" = "password"
+}
+
+# Repository-specific Variables (non-sensitive)
+n8n_variables = {
+  ENVIRONMENT = "production"
+  LOG_LEVEL   = "info"
+}
+
+glance_variables = {
+  ENVIRONMENT = "production"
+}
+
+boilerplate_variables = {
+  ENVIRONMENT = "production"
+}
+
+# Webhook Configuration (optional)
+enable_webhooks = false
+# webhook_url    = "https://your-webhook-endpoint.com/github"
+# webhook_secret = "your-webhook-secret"

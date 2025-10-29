@@ -1,0 +1,48 @@
+# Staging Environment Configuration
+
+github_owner = "your-github-username"
+environment  = "staging"
+
+# Repository visibility for staging
+repository_defaults = {
+  visibility               = "private"
+  has_issues              = true
+  has_projects            = true
+  has_wiki                = false
+  has_downloads           = true
+  allow_merge_commit      = true
+  allow_squash_merge      = true
+  allow_rebase_merge      = true
+  delete_branch_on_merge  = true
+  auto_init               = true
+  allow_auto_merge        = true
+}
+
+# Moderate branch protection for staging
+enable_branch_protection = true
+required_reviews         = 1
+
+# Enable auto-updates
+enable_dependabot = true
+
+# Staging-specific variables
+n8n_variables = {
+  ENVIRONMENT = "staging"
+  LOG_LEVEL   = "info"
+}
+
+glance_variables = {
+  ENVIRONMENT = "staging"
+  DEBUG_MODE  = "false"
+}
+
+boilerplate_variables = {
+  ENVIRONMENT = "staging"
+}
+
+# Common topics for staging environment
+common_topics = [
+  "terraform",
+  "infrastructure-as-code",
+  "staging"
+]
